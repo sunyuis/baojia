@@ -1,0 +1,23 @@
+
+CREATE TABLE `user` (
+`id`  int(11) NOT NULL AUTO_INCREMENT ,
+`username`  varchar(30) NOT NULL ,
+`password`  varchar(30) NULL ,
+`creat_time`  datetime NULL ,
+PRIMARY KEY (`id`),
+UNIQUE INDEX (`username`) 
+)
+;
+
+
+
+CREATE TABLE `databiao` (
+`id`  int NOT NULL ,
+`username`  varchar(30) NULL ,
+`cosumername`  varchar(30) NOT NULL ,
+`cosumerdata`  text NOT NULL ,
+`creattime`  datetime NULL ,
+PRIMARY KEY (`id`),
+FOREIGN KEY (`username`) REFERENCES `user` (`username`)
+)
+;

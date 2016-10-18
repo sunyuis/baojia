@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>室内装工程预算书</title>
+        <meta charset="utf-8">
+        <link href="./css/index.css" rel="stylesheet"/>
+        <script src="./js/jquery-2.0.3.min.js"></script>
+        <script src="./js/data.js"></script>
+        <script src="./js/index.js"></script>
+    </head>
+    <body>
+    <nav class="heads" contenteditable="true"><img style="width:40px;position:relative;top:8px;" src='./img/logo.png'>屋托邦室内装修工程预算书</nav>
+    <section class="userinfo">
+        <p lass="huanhang">
+            <span>客户名称：<input id="username" type="text"></span>
+            <span>手机号码：<input id="userphone" type="tel"></span>
+        </p>
+        <p class="huanhang">
+            <span>小区名称：<input id="userhome" type="text"></span>
+            <span>户型：<input id="userhouse" name="" id=""></input> </span>
+            <span>面积：<input id="userarea" type="text"></span>
+        <p/>
+        <p>
+            <span>项目地址：<input id="useraddress" style="width:300px;" type="text"></span>
+            <span>备注：<input id="usermsg" style="width:300px;" type="text"></span>
+        </p>
+        <p>
+        </p>
+        <button id='deng'>登录</button>
+        <button id='zhuce'>注册</button>
+        <button id='tuichu'>退出</button>
+        <span id='welcomeyou'>欢迎你：xxx</span>
+    </section>
+    <footer class="footer">
+        <div class="lastall">
+                <p style="position:relative;">
+                    <button id="but1">新增项目</button>&nbsp;
+                    <span class="newbig">
+                    </span>
+                    <button onclick="printpreview()" id="but2">打印</button>&nbsp;
+                    <button onclick="send()" id="but3">加载本地项目</button>&nbsp;
+                    <span class="newbig2">
+                        <i>无记录！</i>
+                    </span>
+                    <button onclick="openf()" id="but4">本地保存</button>&nbsp;
+                    <button onclick="clearss()" id="but5">清除本地数据</button>&nbsp;
+                    <button  id="but7">云端记录</button>&nbsp;
+                    <button  id="but6">云端保存</button>&nbsp;&nbsp;
+                    <span class="newbig3">
+                        <i>无记录！</i>
+                    </span>
+                    <i>总计: <span class='totalmon'>￥0.00</span></i>
+                </p>
+        </div>
+    </footer>
+    <aside style="margin-bottom:50px;">
+        <p>备注说明：</p>
+        <p>1、物业所收取的装修押金及装修管理费等其它费用无论任何理由均由客户承担（除施工人员小区出入证外）。<br>
+        2、墙面面积计算：按展开面积，门窗洞口等面积按50%的扣除。<br>
+        3、实际发生项目与报价单不符，以实际发生为准。<br>
+        4、施工期间的水电费由客户承担。<br>
+        5、如装修过程中发生增减项，其费用在中期款时计算、支付。<br>
+        6、请不要接受任何口头承诺。<br>
+        7、水电验收收方时，每个底盒算30厘米，含多预留的线，开槽，底盒及底盒安装（不含面板及面板安装）。<br>
+        </p>
+    </aside>
+
+    <div class="mask" style="display: none;"></div>
+
+    <!-- 弹出输入框 -->
+    <div style="overflow: auto; display:none;" class="alert-bomb alert-bomb1 alert-bomb03" id="confimDiv2">
+        <span id="close">关闭</span>
+        <p class="bomb-con">
+             请选择新增项目
+        </p>
+        <section style="height:400px;width:600px;text-align:left;">
+            <select name="" id="newnew">
+            <option value="">请选择增加的项目</option>
+            </select>
+            <div id="detii" class="newde">
+            </div>
+        </section>
+    </div>
+    <section class="denglu">
+        <h3>用户登录</h3>
+        <button class='clole'>关闭</button>
+        <p class="p1">用户名:<input id='usernae' type="text" name="" value=""> </p>
+        <p class="p2">密码:<input id='password' type="password" name="" value=""> </p>
+        <button id='logn'>登录</button>
+        <button id='rejs'>取消</button>
+    </section>
+    <section class='neuser'>
+        <h3>用户注册</h3>
+        <button class='clole'>关闭</button>
+        <p class="p1">用户名:<input id='regusername' type="text" name="" value=""> </p>
+        <p class="p2">密码:<input id='reguserpassword' type="password" name="" value=""> </p>
+        <p class="p3">确认密码:<input type="password" id='reguserpassword2' name="" value=""> </p>
+        <button id='zhuce1'>注册</button>
+        <button id='quxiao'>取消</button>
+    </section>
+    </body>
+    <script>
+    $(document).ready(function(){
+        resize();
+        $(window).resize(function(){
+            resize();
+        });
+        //登录
+        $('#deng').click(function(){
+            $('.denglu,.mask').show();
+        });
+        $('.clole,#rejs').click(function(){
+            $('.denglu,.mask').hide();
+        });
+        //注册
+        $('#zhuce').click(function(){
+
+            $('.neuser,.mask').show();
+        });
+        $('.clole,#quxiao').click(function(){
+            $('.neuser,.mask').hide();
+        });
+    });
+
+    function resize(){
+            var top = ($(window).height()-300)/2;
+            var left = ($(window).width()-400)/2;
+            $('.denglu,.neuser').css({
+                top: top,
+                left: left
+            });
+        };
+    </script>
+</html>
